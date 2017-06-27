@@ -1,7 +1,6 @@
 <?php
 
-include __DIR__.'/config/config.php';
-include __DIR__.'/config/database.php';
+include 'admin/config/config.php';
 
 ?>
 
@@ -13,6 +12,8 @@ include __DIR__.'/config/database.php';
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>Fleetsu - Demo Project</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
 
   <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -21,50 +22,29 @@ include __DIR__.'/config/database.php';
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
-  <!--Font Awesome-->
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="admin/css/font-awesome.min.css">
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
-
-  <!--Custom Styles Include-->
-  <link rel="stylesheet" href="css/custom-styles.css">
+  <link rel="stylesheet" href="admin/css/normalize.css">
+  <link rel="stylesheet" href="admin/css/skeleton.css">
+  <link rel="stylesheet" href="admin/css/custom-styles.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="js/jquery.redirect.js"></script>
-
 </head>
 <body>
-
-<div class="container admin-workspace">
-    <div class="row twelve columns">
-        <div class="two columns">
-            <div class="logo-block">
-                <img src="images/fleetsu-logo-hq.png">
-            </div>
+<div class="container">
+    <!--Header Section-->
+    <div class="row header-border">
+        <div class="twelve columns bottom-border" style="text-align: center;">
+            <img class="full-image" style="width:50%;" src="admin/images/fleetsu-logo-hq.png">
         </div>
-        <div class="ten columns no-padding">
-            <div class="main-header">
-                <span>Back-end</span>
-                <a href="#"><span class="fa fa-sign-out"></span>Logout</a>
-            </div>
+        <div class="twelve columns top-margin bottom-border">
+        	<h4 class="center no-margin">List showing device(s) health</h4>
         </div>
     </div>
-    <div class="twelve columns">
-        <div class="two columns sidebar">
-            <div class="menu-container">
-                <h4 class="dash-title">Dashboard</h4>
-                <ul class="nav-menu">
-                    <li><span class="fa fa-tablet"></span><a href="index.php">Add Devices</a></li>
-                    <li><span class="fa fa-list-ul"></span><a href="listDevices.php">List Devices</a></li>
-                    <li><span class="fa fa-link"></span><a href="retrieveURL.php">Retrieve API URL</a></li>
-                </ul>
-            </div>
-        </div>
+    <!--End Header-->
+</div>

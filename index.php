@@ -1,35 +1,58 @@
 <?php
 
-include __DIR__.'/header.php';
+include 'header.php';
 
-if(@$_POST['add_device']) {
+$api_url = "http://localhost/fleetsu/admin/v1/listAllDevices.php";
 
-	$device_id 		= $_POST['device_id'];
-	$device_name 	= $_POST['device_name'];
-	$last_reported  = $_POST['last_reported_date_time'];
+$data = json_decode(file_get_contents($api_url));
 
-	$insert_query = $con->prepare("INSERT INTO device_information (device_id,device_name,last_reported_date_time) VALUES ('$device_id','$device_name','$last_reported')");
-	$insert_query->execute();
+$api_endpoint = $data->device_list;
+
+$i = 1;
+
+foreach($api_endpoint as $key => $value) {
+
+	$date = new DateTime($value->last_reported, new DateTimeZone('UTC'));
+	$date->setTimezone(new DateTimeZone(MY_TIME_ZONE));
+	$date_reported = $date->format('Y-m-d H:i:s');
+
+	$datetime1 = new DateTime($date_reported);
+	$datetime1_date = $datetime1->format('Y-m-d H:i:s');
+
+	$reported_date = new DateTime($datetime1_date);
+
+	$curDate = date('Y-m-d H:i:s');
+	$datetime2 = new DateTime($curDate);
+
+	$interval = $datetime2->diff($reported_date);
+	$interval_time = $interval->format("%H");
+	$interval_date = $interval->format("%d");
+
+	if($interval_date >= 1) { $btn_class = 'fa-toggle-off off'; }
+	elseif($interval_time > 24) { $btn_class = 'fa-toggle-off off'; } 
+	else { $btn_class = 'fa-toggle-on on'; }
+
+	$device_list_html .= sprintf('<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td><center><span class="fa %s"></span></center></td></tr>', $i, $value->device_id, $value->device_name, $date_reported, $btn_class);
+
+	$i++;
 }
 
 ?>
-
-<div class="ten columns">
-	<h5 class="add-top-margin">Add device health information</h5>
-	<form class="" method="POST" action="">
-	  	<div class="row">
-		    <div class="six columns">
-		      	<label for="deviceID">Device ID <em>*</em></label>
-		      	<input class="u-full-width" name="device_id" required type="text" placeholder="Device's ID" id="device_id"><button class="generate_random_id">Generate a random ID</button>
-		      	<label for="deviceID">Device Label <em>*</em></label>
-		      	<input class="u-full-width" name="device_name" required type="text" placeholder="Name of your device" id="">
-		      	<label for="deviceID">Last Reported Date & Time</label>
-		      	<input class="seven columns no-margin-left right-margin" name="last_reported_date_time" required type="text" placeholder="" id="current_date" value="">
-		      	<button class="print_current_date">Print Current Date</button>
-		    </div>
-	    </div>
-	  	<input class="button-primary" type="submit" name="add_device" value="Submit">
-	</form>
+<div class="container">
+	<div class="row">
+		<div class="twelve columns">
+			<table class="u-full-width">
+			  	<thead>
+				    <tr>
+				      <th>S No</th>
+				      <th>Device ID</th>
+				      <th>Device Name</th>
+				      <th>Date Last Reported</th>
+				      <th>Status</th>
+				    </tr>
+			  	</thead>
+			  	<tbody><?php echo $device_list_html; ?></tbody>
+			</table>
+		</div>
+	</div>
 </div>
-
-<?php include 'footer.php'; ?>
