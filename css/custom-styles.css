@@ -1,0 +1,17 @@
+.admin-workspace {  width:100%;margin:0px;max-width:100%; }
+.no-padding { padding: 0px !important; }
+.sidebar { height:100vh;background-color: #0f1c29; }
+.logo-block { background-color: #fff;text-align: center;padding: 10px; }
+.logo-block img { width:80%; }
+.main-header { border-bottom: 1px solid #adadad;height: 50px; }
+.main-header a { float: right;color: #444444;line-height: 3;margin-right: 10px;text-decoration: none; }
+.main-header span { margin-right: 5px;line-height: 3.5; }
+
+.nav-menu {}
+.nav-menu li { display: block;padding: 10px;color: #fff;font-size: 15px;text-align: center;border-bottom: 1px solid rgba(175, 175, 175, 0.48);margin-bottom: 0px; }
+.nav-menu li a { margin-left: 10px;color: #fff;text-decoration:none; }
+
+.dash-title { background: #f66e4f;color: #fff;text-align: center;padding: 5px;font-size: 22px;margin-bottom: 0px; }
+
+.footer-text { background-color:#0f1c29; }
+.footer-text p { color: #fff;line-height: 3.5;float: right;height: 30px;bottom: 0;margin-right: 10px; }
