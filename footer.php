@@ -32,5 +32,14 @@
 				}
 			});
 		});
+
+		$(".update_device").click(function(e)
+		{
+			e.preventDefault();
+
+			var device_id = $(this).data('value');
+
+			$.redirect('updateDevice.php', { 'devID': device_id });
+		});
 	});
 </script>

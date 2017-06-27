@@ -11,7 +11,7 @@ $i = 1;
 
 foreach($device_list as $value){
 
-	$device_list_html .= sprintf('<tr><td>%s</td><td>%s</td><td>%s</td><td><button class="button-primary">Update</button> <button class="button-danger">Delete</button></td></tr>', $i, $value['device_name'],$value['last_reported_date_time']);
+	$device_list_html .= sprintf('<tr><td>%s</td><td>%s</td><td>%s</td><td><button type="submit" class="update_device button-primary" data-value="%s">Update</button></td></tr>', $i, $value['device_name'],$value['last_reported_date_time'], $value['ID']);
 
 	$i++;
 }

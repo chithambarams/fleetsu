@@ -38,6 +38,7 @@ include __DIR__.'/config/database.php';
   <link rel="icon" type="image/png" href="images/favicon.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/jquery.redirect.js"></script>
 
 </head>
 <body>
