@@ -1,3 +1,10 @@
+<?php
+
+include __DIR__.'/config/config.php';
+include __DIR__.'/config/database.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,5 +37,33 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.png">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
+
+<div class="container admin-workspace">
+    <div class="row twelve columns">
+        <div class="two columns">
+            <div class="logo-block">
+                <img src="images/fleetsu-logo-hq.png">
+            </div>
+        </div>
+        <div class="ten columns no-padding">
+            <div class="main-header">
+                <span>Back-end</span>
+                <a href="#"><span class="fa fa-sign-out"></span>Logout</a>
+            </div>
+        </div>
+    </div>
+    <div class="twelve columns">
+        <div class="two columns sidebar">
+            <div class="menu-container">
+                <h4 class="dash-title">Dashboard</h4>
+                <ul class="nav-menu">
+                    <li><span class="fa fa-tablet"></span><a href="index.php">Add Devices</a></li>
+                    <li><span class="fa fa-list-ul"></span><a href="listDevices.php">List Devices</a></li>
+                    <li><span class="fa fa-link"></span><a href="retrieveURL.php">Retrieve API URL</a></li>
+                </ul>
+            </div>
+        </div>
