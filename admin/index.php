@@ -8,7 +8,10 @@ if(@$_POST['add_device']) {
 	$device_name 	= $_POST['device_name'];
 	$last_reported  = $_POST['last_reported_date_time'];
 
-	$insert_query = $con->prepare("INSERT INTO device_information (device_id,device_name,last_reported_date_time) VALUES ('$device_id','$device_name','$last_reported')");
+	$insert_query = $con->prepare("INSERT INTO device_information (device_id,device_name,last_reported_date_time) VALUES (?,?,?)");
+	$insert_query->bindParam(1, $device_id);
+	$insert_query->bindParam(2, $device_name);
+	$insert_query->bindParam(3, $last_reported);
 	$insert_query->execute();
 }
 
