@@ -2,7 +2,7 @@
 
 include 'header.php';
 
-$api_url = "http://localhost/fleetsu/admin/v1/listAllDevices.php";
+$api_url = "http://localhost/fleetsu/admin/v1/listAllDevices.php";  // Give the copied URL from retrieve API URL Menu
 
 $data = json_decode(file_get_contents($api_url));
 
